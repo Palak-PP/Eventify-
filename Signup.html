@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Club Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #ff0000, #000000);
+    }
+    .glass {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glow-button {
+      box-shadow: 0 0 10px #ff0077, 0 0 20px #ff0077;
+    }
+    @keyframes fadeInMove {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-slide-in {
+      animation: fadeInMove 1s ease-out;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center text-white font-sans">
+
+  <div class="glass p-8 rounded-xl w-full max-w-md animate-slide-in">
+    <h2 class="text-3xl font-bold text-center mb-6">Create Account</h2>
+
+    <!-- Sign Up with Google -->
+    <button id="googleSignUp" class="w-full py-2 mb-4 flex items-center justify-center gap-3 bg-white text-black font-semibold rounded hover:bg-gray-100 transition duration-300">
+      <i class="fab fa-google text-red-500 text-lg"></i>
+      Sign up with Google
+    </button>
+
+    <div class="text-center text-sm mb-4 text-gray-300">or continue with email</div>
+
+    <form id="emailSignupForm">
+      <input type="text" id="name" placeholder="Full Name" class="w-full p-3 mb-3 rounded bg-transparent border border-pink-500 placeholder-white focus:outline-none"/>
+      <input type="email" id="email" placeholder="Email" class="w-full p-3 mb-3 rounded bg-transparent border border-pink-500 placeholder-white focus:outline-none"/>
+      <input type="password" id="password" placeholder="Password" class="w-full p-3 mb-4 rounded bg-transparent border border-pink-500 placeholder-white focus:outline-none"/>
+
+      <button type="submit" class="w-full py-3 bg-pink-500 text-white font-bold rounded glow-button hover:bg-pink-600 transition duration-300">
+        Sign Up
+      </button>
+    </form>
+
+    <p class="text-sm mt-4 text-center">
+      Already have an account?
+      <a href="login.html" class="text-pink-400 hover:text-white hover:underline transition-all duration-300">Login here</a>
+    </p>
+    
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+    // Your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyBmdVHvPQROKwfRh0JNnQEx0sS7UscpRa8",
+      authDomain: "eventify-d9f71.firebaseapp.com",
+      projectId: "eventify-d9f71",
+      storageBucket: "eventify-d9f71.firebasestorage.app",
+      messagingSenderId: "261209060753",
+      appId: "1:261209060753:web:6115c21802e1e27551d630",
+      measurementId: "G-3V5FBTNLLJ"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    // Email/Password Sign Up
+    document.getElementById("emailSignupForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        alert("Signup successful!");
+        window.location.href = "home.html"; // Redirect
+      } catch (error) {
+        alert("Error: " + error.message);
+      }
+    });
+
+    // Google Sign Up
+    document.getElementById("googleSignUp").addEventListener("click", async () => {
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        alert("Signed up with Google: " + user.displayName);
+        window.location.href = "home.html"; // Redirect
+      } catch (error) {
+        alert("Google Sign-In Error: " + error.message);
+      }
+    });
+  </script>
+</body>
+</html>

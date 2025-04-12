@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Join As Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #000000, #ff0000);
+    }
+    .glass {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glow-input:focus {
+      box-shadow: 0 0 5px #ff0055, 0 0 10px #ff0055;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center text-white font-sans px-4 relative">
+
+  <!-- Back to Login Button -->
+  <a href="login.html" class="absolute top-5 right-5 bg-black/30 border border-white/10 px-4 py-2 rounded hover:bg-pink-600 transition">
+    ← Back to Login
+  </a>
+
+  <div class="w-full max-w-4xl p-8 glass rounded-2xl shadow-xl" data-aos="fade-up">
+    <h1 class="text-3xl font-bold mb-4 text-center text-pink-500 uppercase tracking-wide">Join As Admin</h1>
+    <p class="text-sm text-center text-gray-300 mb-6">Register your college or club to manage events officially. College ID or proof documents are required for verification.</p>
+
+    <!-- Toggle -->
+    <div class="flex justify-center gap-4 mb-6">
+      <button onclick="showForm('college')" class="px-4 py-2 bg-pink-600 rounded hover:bg-pink-700 transition">Join as College</button>
+      <button onclick="showForm('club')" class="px-4 py-2 bg-pink-600 rounded hover:bg-pink-700 transition">Join as Club</button>
+    </div>
+
+    <!-- College Form -->
+    <div id="collegeForm" class="space-y-4 hidden">
+      <h2 class="text-xl font-semibold text-pink-400">College Registration</h2>
+      <input type="text" placeholder="College Name" class="w-full p-3 bg-black/20 rounded glow-input" />
+      <input type="email" placeholder="College Email" class="w-full p-3 bg-black/20 rounded glow-input" />
+      <input type="text" placeholder="College ID / Code" class="w-full p-3 bg-black/20 rounded glow-input" />
+      <input type="text" placeholder="Registration Number" class="w-full p-3 bg-black/20 rounded glow-input" />
+      <input type="text" placeholder="City / State" class="w-full p-3 bg-black/20 rounded glow-input" />
+      <input type="tel" placeholder="Contact Number" class="w-full p-3 bg-black/20 rounded glow-input" />
+      <label class="block text-sm">Upload Proof of Registration</label>
+      <input type="file" class="w-full p-2 bg-black/20 rounded" />
+      <button class="mt-4 w-full bg-pink-600 p-3 rounded hover:bg-pink-700 transition">Submit College Request</button>
+    </div>
+
+    <!-- Club Form -->
+    <div id="clubForm" class="space-y-4 hidden">
+      <h2 class="text-xl font-semibold text-pink-400">Club Registration</h2>
+      <input type="text" placeholder="Club Name" class="w-full p-3 bg-black/20 rounded glow-input" />
+      <select class="w-full p-3 bg-black/20 rounded glow-input">
+        <option disabled selected>Select Club Type</option>
+        <option>Technical</option>
+        <option>Cultural</option>
+        <option>Sports</option>
+        <option>Social</option>
+      </select>
+      <input type="text" placeholder="Associated College Name" class="w-full p-3 bg-black/20 rounded glow-input" />
+      <input type="text" placeholder="Club Code / ID" class="w-full p-3 bg-black/20 rounded glow-input" />
+      <input type="text" placeholder="Club Lead Name" class="w-full p-3 bg-black/20 rounded glow-input" />
+      <input type="email" placeholder="Lead Email" class="w-full p-3 bg-black/20 rounded glow-input" />
+      <input type="tel" placeholder="Contact Number" class="w-full p-3 bg-black/20 rounded glow-input" />
+      <label class="block text-sm">Upload Club Proof Document</label>
+      <input type="file" class="w-full p-2 bg-black/20 rounded" />
+      <button class="mt-4 w-full bg-pink-600 p-3 rounded hover:bg-pink-700 transition">Submit Club Request</button>
+    </div>
+  </div>
+   
+  <script>
+    function showForm(formType) {
+      document.getElementById('collegeForm').style.display = 'none';
+      document.getElementById('clubForm').style.display = 'none';
+      if (formType === 'college') {
+        document.getElementById('collegeForm').style.display = 'block';
+      } else {
+        document.getElementById('clubForm').style.display = 'block';
+      }
+    }
+  </script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

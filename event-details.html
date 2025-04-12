@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Details - Eventify</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a2d9d6a690.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #000000, #2d0000);
+    }
+    .overlay-text {
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-image: linear-gradient(to right, #ff0044, #ffffff);
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body class="text-white font-sans overflow-x-hidden">
+
+  <!-- Header -->
+  <section class="text-center py-16 px-6" data-aos="fade-down">
+    <h1 class="text-5xl overlay-text uppercase mb-3">TechX Hackathon</h1>
+    <p class="text-gray-300 text-lg">Organized by CodeX Club • April 21, 2025 • 10:00 AM</p>
+  </section>
+
+  <!-- Main Content -->
+  <section class="max-w-5xl mx-auto px-6 pb-20 grid md:grid-cols-2 gap-10" data-aos="fade-up">
+    
+    <!-- Event Image -->
+    <div>
+      <img src="https://via.placeholder.com/500x300" alt="TechX Hackathon" class="w-full rounded-xl shadow-lg border border-red-600">
+    </div>
+
+    <!-- Event Info -->
+    <div class="flex flex-col justify-center">
+      <h2 class="text-2xl font-bold text-pink-500 mb-3">Event Overview</h2>
+      <p class="text-gray-300 mb-4">
+        Join the biggest 24-hour Hackathon in college, hosted by <strong>CodeX Club</strong>! Compete in teams to build the smartest AI-powered applications and win exciting prizes.
+      </p>
+
+      <div class="mb-3">
+        <p><i class="fas fa-map-marker-alt text-red-500 mr-2"></i><span class="text-white">Venue:</span> Innovation Hall, Block C</p>
+        <p><i class="fas fa-users text-red-500 mr-2 mt-2"></i><span class="text-white">Team Size:</span> 2–4 members</p>
+      </div>
+
+      <a href="https://example.com/register" target="_blank">
+        <button class="mt-6 px-6 py-3 bg-pink-600 hover:bg-pink-500 transition rounded font-semibold text-white">
+          Register Now
+        </button>
+      </a>
+    </div>
+  </section>
+  <footer class="bg-black border-t border-pink-700 text-white pt-10 pb-6 px-6 mt-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
+  
+      <!-- Logo + About -->
+      <div>
+        <h2 class="text-2xl font-bold text-pink-500 mb-2">Eventify</h2>
+        <p class="text-gray-400">Your ultimate campus event hub — connect, explore, and lead the way with every event that matters.</p>
+      </div>
+  
+      <!-- Quick Links (no actual links, just placeholders) -->
+      <div>
+         
+      </div>
+  
+      <!-- Follow + Credit -->
+      <div>
+        <h3 class="text-lg font-semibold mb-3 text-pink-400">Connect</h3>
+        <div class="flex space-x-4 mb-4">
+          <i class="fab fa-instagram hover:text-pink-500 transition cursor-pointer"></i>
+          <i class="fab fa-discord hover:text-pink-500 transition cursor-pointer"></i>
+          <i class="fab fa-twitter hover:text-pink-500 transition cursor-pointer"></i>
+        </div>
+        <p class="text-gray-500">Crafted by <span class="text-white font-semibold">Palak</span> ✨</p>
+      </div>
+    </div>
+  
+    <!-- Glowing Line -->
+    <div class="mt-10 mb-4 h-0.5 w-full bg-gradient-to-r from-transparent via-pink-600 to-transparent blur-sm"></div>
+  
+    <!-- Copyright -->
+    <div class="text-center text-gray-600 text-xs">
+      © 2025 Eventify. All rights reserved.
+    </div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

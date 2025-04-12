@@ -1,0 +1,186 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eventify | Profile</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    body {
+      background: linear-gradient(120deg, #0d0d0d, #1a1a1a);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+    }
+
+    .neon-card {
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(255, 0, 85, 0.3), 0 0 40px rgba(255, 0, 85, 0.1);
+      border-radius: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .neon-card:hover {
+      transform: scale(1.01);
+      box-shadow: 0 0 25px rgba(255, 0, 85, 0.5), 0 0 50px rgba(255, 0, 85, 0.2);
+    }
+
+    .glow-box {
+      border: 2px solid #ff0057;
+      box-shadow: 0 0 10px #ff0057;
+      transition: all 0.3s ease;
+    }
+
+    .glow-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px #ff0057;
+    }
+
+    .floating {
+      animation: floaty 3s ease-in-out infinite;
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .sidebar-icon:hover {
+      background-color: #ff0057;
+      color: white;
+      box-shadow: 0 0 15px #ff0057;
+      transform: translateX(5px);
+    }
+  </style>
+</head>
+<body>
+
+<!-- 🔥 Stylish Sidebar -->
+<div class="fixed top-0 left-0 h-screen w-64 bg-black bg-opacity-70 backdrop-blur-lg border-r border-red-600 z-50">
+  <div class="text-center py-6 text-3xl font-extrabold tracking-wider text-red-500">EVENTIFY</div>
+  <nav class="flex flex-col gap-4 px-6 mt-4">
+    <a href="index.html" class="flex items-center gap-3 py-3 px-4 rounded-xl transition-all sidebar-icon">
+      <i class="fas fa-home"></i> Home
+    </a>
+    <a href="clubs.html" class="flex items-center gap-3 py-3 px-4 rounded-xl transition-all sidebar-icon">
+      <i class="fas fa-users"></i> Clubs
+    </a>
+    <a href="events.html" class="flex items-center gap-3 py-3 px-4 rounded-xl transition-all sidebar-icon">
+      <i class="fas fa-calendar-alt"></i> Events
+    </a>
+    <a href="leaderboard.html" class="flex items-center gap-3 py-3 px-4 rounded-xl transition-all sidebar-icon">
+      <i class="fas fa-trophy"></i> Leaderboard
+    </a>
+    <a href="profile.html" class="flex items-center gap-3 py-3 px-4 rounded-xl bg-red-600 text-white shadow-md">
+      <i class="fas fa-user"></i> Profile
+    </a>
+  </nav>
+</div>
+
+<!-- 🌟 Profile Content -->
+<div class="ml-64 min-h-screen flex items-center justify-center p-8 relative overflow-hidden">
+  <div class="absolute w-72 h-72 bg-pink-500 opacity-20 rounded-full blur-3xl top-10 left-10 animate-pulse"></div>
+  <div class="absolute w-80 h-80 bg-red-700 opacity-20 rounded-full blur-3xl bottom-10 right-20 animate-ping"></div>
+
+  <!-- Logged-in Profile Section -->
+  <div id="studentProfile" class="hidden w-full max-w-4xl neon-card p-10 space-y-10 text-center" data-aos="zoom-in">
+    <div class="flex flex-col items-center space-y-4">
+      <img src="#" class="w-36 h-36 rounded-full border-4 border-red-500 shadow-lg hover:scale-105 transition-transform duration-300 floating" />
+      <h2 class="text-3xl font-bold text-white">Student Name</h2>
+      <p class="text-gray-300">📍 Your College Name</p>
+      <p class="text-gray-400">👤 Role: Student</p>
+      <p class="text-gray-400">🎓 College ID: XYZ123</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-gray-800 glow-box rounded-xl p-6 text-center">
+        <i class="fas fa-calendar-check text-3xl text-red-500"></i>
+        <h3 class="text-xl font-semibold mt-2">Events Registered</h3>
+        <p class="text-2xl font-bold mt-1">5</p>
+      </div>
+      <div class="bg-gray-800 glow-box rounded-xl p-6 text-center">
+        <i class="fas fa-users text-3xl text-red-500"></i>
+        <h3 class="text-xl font-semibold mt-2">Clubs Joined</h3>
+        <p class="text-2xl font-bold mt-1">2</p>
+      </div>
+      <div class="bg-gray-800 glow-box rounded-xl p-6 text-center">
+        <i class="fas fa-star text-3xl text-red-500"></i>
+        <h3 class="text-xl font-semibold mt-2">Points</h3>
+        <p class="text-2xl font-bold mt-1">120</p>
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-6 mt-6">
+      <button class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg transition-all"><i class="fas fa-edit mr-2"></i> Edit</button>
+      <button class="bg-gray-700 hover:bg-gray-600 px-6 py-2 rounded-lg transition-all"><i class="fas fa-sign-out-alt mr-2"></i> Logout</button>
+    </div>
+  </div>
+
+  <!-- Club Profile Section -->
+  <div id="clubProfile" class="hidden w-full max-w-4xl neon-card p-10 space-y-10 text-center" data-aos="zoom-in">
+    <div class="flex flex-col items-center space-y-4">
+      <img src="#" class="w-36 h-36 rounded-full border-4 border-red-500 shadow-lg hover:scale-105 transition-transform duration-300 floating" />
+      <h2 class="text-3xl font-bold text-white">Club Name</h2>
+      <p class="text-gray-300">🏫 Department of XYZ</p>
+      <p class="text-gray-400">👤 Role: Club Admin</p>
+      <p class="text-gray-400">🆔 Club ID: CLUB123</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-gray-800 glow-box rounded-xl p-6 text-center">
+        <i class="fas fa-calendar-plus text-3xl text-red-500"></i>
+        <h3 class="text-xl font-semibold mt-2">Events Hosted</h3>
+        <p class="text-2xl font-bold mt-1">4</p>
+      </div>
+      <div class="bg-gray-800 glow-box rounded-xl p-6 text-center">
+        <i class="fas fa-user-cog text-3xl text-red-500"></i>
+        <h3 class="text-xl font-semibold mt-2">Members</h3>
+        <p class="text-2xl font-bold mt-1">25</p>
+      </div>
+      <div class="bg-gray-800 glow-box rounded-xl p-6 text-center">
+        <i class="fas fa-medal text-3xl text-red-500"></i>
+        <h3 class="text-xl font-semibold mt-2">Club Score</h3>
+        <p class="text-2xl font-bold mt-1">380</p>
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-6 mt-6">
+      <button class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg transition-all"><i class="fas fa-edit mr-2"></i> Edit Club</button>
+      <button class="bg-gray-700 hover:bg-gray-600 px-6 py-2 rounded-lg transition-all"><i class="fas fa-sign-out-alt mr-2"></i> Logout</button>
+    </div>
+  </div>
+
+  <!-- If not logged in -->
+  <div id="loginSection" class="hidden w-full max-w-2xl bg-gray-900 neon-card p-10 text-center rounded-xl" data-aos="zoom-in">
+    <h2 class="text-3xl font-bold mb-4">You’re not logged in</h2>
+    <p class="mb-6 text-gray-300">Please log in to view your profile.</p>
+    <a href="login.html" class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg text-lg transition-all duration-300">
+      <i class="fas fa-sign-in-alt mr-2"></i> Login Now
+    </a>
+  </div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+<script>
+  const isLoggedIn = true; // fake auth
+  const role = 'club'; // 'student' or 'club'
+
+  const studentProfile = document.getElementById('studentProfile');
+  const clubProfile = document.getElementById('clubProfile');
+  const loginSection = document.getElementById('loginSection');
+
+  if (!isLoggedIn) {
+    loginSection.classList.remove('hidden');
+  } else if (role === 'student') {
+    studentProfile.classList.remove('hidden');
+  } else if (role === 'club') {
+    clubProfile.classList.remove('hidden');
+  }
+</script>
+</body>
+</html>

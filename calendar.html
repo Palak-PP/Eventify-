@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eventify - Calendar</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      background: linear-gradient(to right, #000000, #2d0000);
+    }
+    .overlay-text {
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-image: linear-gradient(to right, #ff0044, #ffffff);
+      font-weight: 800;
+    }
+    .event-day {
+      background-color: #ff005566;
+      cursor: pointer;
+      position: relative;
+    }
+    .tooltip {
+      display: none;
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1a1a;
+      color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      width: 220px;
+      z-index: 50;
+      text-align: left;
+    }
+    .event-day:hover .tooltip {
+      display: block;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-white font-sans overflow-x-hidden relative">
+
+  <!-- Sidebar -->
+  <div class="absolute top-0 left-4 h-full flex flex-col justify-between py-10 items-center z-20">
+    <div class="flex flex-col gap-6 text-xl floating-icons">
+      <a href="index.html" title="Home"><i class="fas fa-home"></i></a>
+      <a href="calendar.html" title="Calendar"><i class="fas fa-calendar-alt"></i></a>
+      <a href="Club.html" title="Clubs"><i class="fas fa-users"></i></a> 
+      <a href="leaderboard.html" title="Leaderboard"><i class="fas fa-trophy"></i></a> 
+    </div>
+    <div class="h-32 w-px bg-white opacity-30 my-4"></div>
+    <div class="flex flex-col gap-4 text-xl">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="text-center pt-28 px-8" data-aos="fade-up">
+    <h1 class="text-5xl md:text-7xl font-bold overlay-text uppercase">Event Calendar</h1>
+    <p class="mt-4 text-gray-300 max-w-xl mx-auto">Stay updated with all college events, club activities, and competitions happening around the campus!</p>
+  </div>
+
+  <!-- Calendar Section -->
+  <section class="mt-16 px-6 md:px-20" data-aos="fade-up">
+    <div class="bg-white rounded-xl p-6 text-black shadow-lg">
+      <div class="flex justify-between items-center mb-6">
+        <button onclick="changeMonth(-1)" class="text-xl"><i class="fas fa-chevron-left"></i></button>
+        <h2 id="calendar-month" class="text-xl font-bold"></h2>
+        <button onclick="changeMonth(1)" class="text-xl"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="grid grid-cols-7 gap-3 text-center font-medium text-gray-800">
+        <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+      </div>
+      <div id="calendar-grid" class="grid grid-cols-7 gap-3 text-center mt-3"></div>
+    </div>
+  </section>
+  <footer class="bg-black border-t border-pink-700 text-white pt-10 pb-6 px-6 mt-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
+  
+      <!-- Logo + About -->
+      <div>
+        <h2 class="text-2xl font-bold text-pink-500 mb-2">Eventify</h2>
+        <p class="text-gray-400">Your ultimate campus event hub — connect, explore, and lead the way with every event that matters.</p>
+      </div>
+  
+      <!-- Quick Links (no actual links, just placeholders) -->
+      <div>
+         
+      </div>
+  
+      <!-- Follow + Credit -->
+      <div>
+        <h3 class="text-lg font-semibold mb-3 text-pink-400">Connect</h3>
+        <div class="flex space-x-4 mb-4">
+          <i class="fab fa-instagram hover:text-pink-500 transition cursor-pointer"></i>
+          <i class="fab fa-discord hover:text-pink-500 transition cursor-pointer"></i>
+          <i class="fab fa-twitter hover:text-pink-500 transition cursor-pointer"></i>
+        </div>
+        <p class="text-gray-500">Crafted by <span class="text-white font-semibold">Palak</span> ✨</p>
+      </div>
+    </div>
+  
+    <!-- Glowing Line -->
+    <div class="mt-10 mb-4 h-0.5 w-full bg-gradient-to-r from-transparent via-pink-600 to-transparent blur-sm"></div>
+  
+    <!-- Copyright -->
+    <div class="text-center text-gray-600 text-xs">
+      © 2025 Eventify. All rights reserved.
+    </div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script>
+    const calendarMonth = document.getElementById("calendar-month");
+    const calendarGrid = document.getElementById("calendar-grid");
+    let currentDate = new Date();
+
+    const events = {
+      // format: "yyyy-mm-dd": { title, time, club, link }
+      "2025-04-04": { title: "AI Tech Talk", time: "2PM", club: "Tech Club", link: "#" },
+      "2025-04-12": { title: "ArtFest", time: "11AM", club: "Artistry", link: "#" },
+      "2025-04-20": { title: "Music Vibe", time: "6PM", club: "Music Hub", link: "#" }
+    };
+
+    function generateCalendar(date) {
+      const year = date.getFullYear();
+      const month = date.getMonth();
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      const startDay = firstDay.getDay();
+      const daysInMonth = lastDay.getDate();
+
+      calendarMonth.innerText = date.toLocaleString('default', { month: 'long' }) + " " + year;
+      calendarGrid.innerHTML = "";
+
+      for (let i = 0; i < startDay; i++) {
+        calendarGrid.innerHTML += `<div></div>`;
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dateStr = `${year}-${String(month+1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const event = events[dateStr];
+        if (event) {
+          calendarGrid.innerHTML += `
+            <div class="event-day p-2 rounded-lg text-white relative">
+              ${day} <i class="fas fa-bolt text-xs text-yellow-300"></i>
+              <div class="tooltip">
+                <h4 class="font-bold text-white mb-1">${event.title}</h4>
+                <p class="text-sm text-gray-300">${event.club} - ${event.time}</p>
+                <a href="${event.link}" class="mt-2 inline-block text-xs bg-red-600 text-white px-3 py-1 rounded">Explore Event</a>
+              </div>
+            </div>
+          `;
+        } else {
+          calendarGrid.innerHTML += `<div class="p-2 rounded-lg hover:bg-gray-100">${day}</div>`;
+        }
+      }
+    }
+
+    function changeMonth(step) {
+      currentDate.setMonth(currentDate.getMonth() + step);
+      generateCalendar(currentDate);
+    }
+
+    generateCalendar(currentDate);
+  </script>
+</body>
+</html>

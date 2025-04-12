@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volunteer - Eventify</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a2d9d6a690.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #000000, #2d0000);
+    }
+    .overlay-text {
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-image: linear-gradient(to right, #ff0044, #ffffff);
+      font-weight: 800;
+    }
+    .glow-button {
+        box-shadow: 0 0 10px #ff0055, 0 0 20px #ff0055, 0 0 40px #ff0055;
+      }
+      .floating-icons i {
+        animation: float 4s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+  </style>
+</head>
+<body class="text-white font-sans overflow-x-hidden">
+    
+ 
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-6" data-aos="fade-down">
+    <h1 class="text-5xl md:text-7xl overlay-text uppercase mb-4">Become a Volunteer</h1>
+    <p class="text-gray-300 text-lg max-w-xl mx-auto">Join our core team to make college events happen. Learn, network, and grow with every event!</p>
+  </section>
+
+  <!-- Why Volunteer Cards -->
+  <section class="px-6 py-10" data-aos="fade-up">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="bg-black bg-opacity-30 p-6 rounded-xl border border-red-500">
+        <i class="fas fa-certificate text-pink-500 text-3xl mb-3"></i>
+        <h3 class="text-xl font-bold mb-2">Get Certified</h3>
+        <p class="text-sm text-gray-300">Receive volunteer certificates and recognition for your contribution.</p>
+      </div>
+      <div class="bg-black bg-opacity-30 p-6 rounded-xl border border-red-500">
+        <i class="fas fa-users text-pink-500 text-3xl mb-3"></i>
+        <h3 class="text-xl font-bold mb-2">Build Network</h3>
+        <p class="text-sm text-gray-300">Meet other passionate students and club leaders across campus.</p>
+      </div>
+      <div class="bg-black bg-opacity-30 p-6 rounded-xl border border-red-500">
+        <i class="fas fa-tools text-pink-500 text-3xl mb-3"></i>
+        <h3 class="text-xl font-bold mb-2">Gain Experience</h3>
+        <p class="text-sm text-gray-300">Develop leadership, organization, and communication skills.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer Form -->
+  <section class="px-6 py-10" data-aos="fade-up">
+    <div class="max-w-3xl mx-auto bg-black bg-opacity-30 p-8 rounded-xl border border-pink-600">
+      <h2 class="text-3xl font-bold mb-6 text-center">Volunteer Registration</h2>
+      <form action="#" method="POST" class="grid grid-cols-1 gap-5">
+        <input type="text" name="name" placeholder="Your Full Name" class="p-3 rounded bg-gray-900 border border-gray-600 placeholder-gray-400" required />
+        <input type="email" name="email" placeholder="Email Address" class="p-3 rounded bg-gray-900 border border-gray-600 placeholder-gray-400" required />
+        <input type="tel" name="phone" placeholder="Phone Number" class="p-3 rounded bg-gray-900 border border-gray-600 placeholder-gray-400" required />
+
+        <select name="event" class="p-3 rounded bg-gray-900 border border-gray-600 text-gray-300" required>
+          <option value="" disabled selected>Select Event</option>
+          <option value="techx">TechX Hackathon</option>
+          <option value="artfest">ArtFest 2025</option>
+          <!-- Add more events here -->
+        </select>
+
+        <textarea name="skills" rows="4" placeholder="Why do you want to volunteer?" class="p-3 rounded bg-gray-900 border border-gray-600 placeholder-gray-400" required></textarea>
+
+        <button type="submit" class="bg-pink-600 hover:bg-pink-500 py-3 px-6 rounded text-white text-lg font-semibold">Submit Registration</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-black border-t border-pink-700 text-white pt-10 pb-6 px-6 mt-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
+  
+      <!-- Logo + About -->
+      <div>
+        <h2 class="text-2xl font-bold text-pink-500 mb-2">Eventify</h2>
+        <p class="text-gray-400">Your ultimate campus event hub — connect, explore, and lead the way with every event that matters.</p>
+      </div>
+  
+      <!-- Quick Links (no actual links, just placeholders) -->
+      <div>
+         
+      </div>
+  
+      <!-- Follow + Credit -->
+      <div>
+        <h3 class="text-lg font-semibold mb-3 text-pink-400">Connect</h3>
+        <div class="flex space-x-4 mb-4">
+          <i class="fab fa-instagram hover:text-pink-500 transition cursor-pointer"></i>
+          <i class="fab fa-discord hover:text-pink-500 transition cursor-pointer"></i>
+          <i class="fab fa-twitter hover:text-pink-500 transition cursor-pointer"></i>
+        </div>
+        <p class="text-gray-500">Crafted by <span class="text-white font-semibold">Palak</span> ✨</p>
+      </div>
+    </div>
+  
+    <!-- Glowing Line -->
+    <div class="mt-10 mb-4 h-0.5 w-full bg-gradient-to-r from-transparent via-pink-600 to-transparent blur-sm"></div>
+  
+    <!-- Copyright -->
+    <div class="text-center text-gray-600 text-xs">
+      © 2025 Eventify. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Highlights - Eventify</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9d6a690.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #000000, #2d0000);
+    }
+    .neon-glow {
+      box-shadow: 0 0 10px #ff0044, 0 0 20px #ff0044, 0 0 30px #ff0044;
+    }
+  </style>
+</head>
+<body class="text-white font-sans overflow-x-hidden">
+
+  <!-- Hero -->
+  <section class="text-center py-20 px-6" data-aos="fade-down">
+    <h1 class="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-red-500 uppercase mb-4">Event Highlights</h1>
+    <p class="text-gray-300 text-lg max-w-xl mx-auto">Relive the unforgettable experiences from our top campus events!</p>
+  </section>
+
+  <!-- Highlights Gallery -->
+  <section class="px-6 pb-20" data-aos="fade-up">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Highlight Card -->
+      <div class="bg-black bg-opacity-40 border border-pink-600 rounded-xl overflow-hidden hover:scale-105 transition">
+        <img src="h1.jpeg" alt="Highlight Image" class="w-full h-56 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-bold mb-2">Ignite Fest 2025</h3>
+          <p class="text-sm text-pink-400 mb-1">Feb 14, 2025</p>
+          <p class="text-sm text-gray-300 mb-3">A cultural night of music, dance and celebration with over 2000 attendees!</p>
+          <button onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')" class="bg-pink-600 px-4 py-2 rounded hover:bg-pink-500 text-sm">Watch Recap</button>
+        </div>
+      </div>
+
+      <div class="bg-black bg-opacity-40 border border-pink-600 rounded-xl overflow-hidden hover:scale-105 transition">
+        <img src="h2.jpg" alt="Highlight Image" class="w-full h-56 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-bold mb-2">HackVerse '25</h3>
+          <p class="text-sm text-pink-400 mb-1">Jan 5, 2025</p>
+          <p class="text-sm text-gray-300 mb-3">48hr hackathon with AI, Web3 and sustainability tracks. 30+ teams participated.</p>
+          <button onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')" class="bg-pink-600 px-4 py-2 rounded hover:bg-pink-500 text-sm">Watch Recap</button>
+        </div>
+      </div>
+
+      <div class="bg-black bg-opacity-40 border border-pink-600 rounded-xl overflow-hidden hover:scale-105 transition">
+        <img src="h3.jpg" alt="Highlight Image" class="w-full h-56 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-bold mb-2">ArtFusion Expo</h3>
+          <p class="text-sm text-pink-400 mb-1">Nov 22, 2024</p>
+          <p class="text-sm text-gray-300 mb-3">Exhibition of art, live painting, digital showcases and more by Artistry Club.</p>
+          <button onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')" class="bg-pink-600 px-4 py-2 rounded hover:bg-pink-500 text-sm">Watch Recap</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Video Popup -->
+  <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-80 hidden flex items-center justify-center z-50">
+    <div class="bg-black p-4 rounded-xl w-full max-w-4xl relative">
+      <iframe id="videoFrame" class="w-full h-96" src="" allowfullscreen></iframe>
+      <button onclick="closeVideo()" class="absolute top-2 right-4 text-white text-2xl">&times;</button>
+    </div>
+  </div>
+  <footer class="bg-black border-t border-pink-700 text-white pt-10 pb-6 px-6 mt-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
+  
+      <!-- Logo + About -->
+      <div>
+        <h2 class="text-2xl font-bold text-pink-500 mb-2">Eventify</h2>
+        <p class="text-gray-400">Your ultimate campus event hub — connect, explore, and lead the way with every event that matters.</p>
+      </div>
+  
+      <!-- Quick Links (no actual links, just placeholders) -->
+      <div>
+         
+      </div>
+  
+      <!-- Follow + Credit -->
+      <div>
+        <h3 class="text-lg font-semibold mb-3 text-pink-400">Connect</h3>
+        <div class="flex space-x-4 mb-4">
+          <i class="fab fa-instagram hover:text-pink-500 transition cursor-pointer"></i>
+          <i class="fab fa-discord hover:text-pink-500 transition cursor-pointer"></i>
+          <i class="fab fa-twitter hover:text-pink-500 transition cursor-pointer"></i>
+        </div>
+        <p class="text-gray-500">Crafted by <span class="text-white font-semibold">Palak</span> ✨</p>
+      </div>
+    </div>
+  
+    <!-- Glowing Line -->
+    <div class="mt-10 mb-4 h-0.5 w-full bg-gradient-to-r from-transparent via-pink-600 to-transparent blur-sm"></div>
+  
+    <!-- Copyright -->
+    <div class="text-center text-gray-600 text-xs">
+      © 2025 Eventify. All rights reserved.
+    </div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function openVideo(url) {
+      document.getElementById('videoFrame').src = url;
+      document.getElementById('videoModal').classList.remove('hidden');
+    }
+    function closeVideo() {
+      document.getElementById('videoFrame').src = '';
+      document.getElementById('videoModal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

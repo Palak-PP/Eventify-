@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaderboard - Eventify</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <script src="https://kit.fontawesome.com/a2d9d6a690.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #000000, #2d0000);
+    }
+    .overlay-text {
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-image: linear-gradient(to right, #ff0044, #ffffff);
+      font-weight: 800;
+    }
+    .glow-medal {
+      animation: glow 1.5s infinite alternate;
+    }
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #ff00a1, 0 0 10px #ff00a1;
+      }
+      to {
+        text-shadow: 0 0 20px #ff007a, 0 0 30px #ff007a;
+      }
+    }
+    .progress-fill {
+      transition: width 1s ease-in-out;
+    }
+  </style>
+</head>
+<body class="text-white font-sans overflow-x-hidden">
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-6" data-aos="fade-down">
+    <h1 class="text-5xl md:text-7xl overlay-text uppercase mb-4">Leaderboard</h1>
+    <p class="text-gray-300 text-lg max-w-xl mx-auto">Top performing clubs and volunteers — real time ranking!</p>
+  </section>
+
+  <!-- Filter + Toggle -->
+  <div class="flex flex-wrap items-center justify-between px-6 mb-6 gap-4" data-aos="fade-up">
+    <div class="flex space-x-2">
+      <button onclick="showTab('clubs')" class="px-4 py-2 bg-pink-600 hover:bg-pink-500 rounded">Top Clubs</button>
+      <button onclick="showTab('volunteers')" class="px-4 py-2 bg-pink-600 hover:bg-pink-500 rounded">Top Volunteers</button>
+    </div>
+    <select class="bg-black border border-pink-500 px-4 py-2 rounded text-white">
+      <option>All Time</option>
+      <option>This Year</option>
+      <option>This Month</option>
+    </select>
+    <input type="text" placeholder="Search..." class="bg-black border border-pink-500 px-4 py-2 rounded text-white w-full sm:w-auto">
+  </div>
+
+  <!-- Club Leaderboard -->
+  <section id="clubs" class="px-6 pb-20 leaderboard-tab" data-aos="fade-up">
+    <div class="space-y-4">
+      <!-- Leaderboard Row -->
+      <div class="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-red-900 to-black">
+        <div class="flex items-center gap-3">
+          <span class="text-xl font-bold text-yellow-400 glow-medal">1</span>
+          <i class="fas fa-medal text-yellow-400 glow-medal"></i>
+          <span class="font-semibold">CodeX Club</span>
+        </div>
+        <div class="w-2/3 bg-gray-700 rounded h-3">
+          <div class="bg-pink-500 h-3 rounded progress-fill" style="width: 90%"></div>
+        </div>
+        <span class="text-pink-400 font-bold">900 pts</span>
+      </div>
+
+      <div class="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-red-900 to-black">
+        <div class="flex items-center gap-3">
+          <span class="text-xl font-bold text-gray-300">2</span>
+          <i class="fas fa-medal text-gray-300"></i>
+          <span class="font-semibold">Artistry Hub</span>
+        </div>
+        <div class="w-2/3 bg-gray-700 rounded h-3">
+          <div class="bg-pink-500 h-3 rounded progress-fill" style="width: 75%"></div>
+        </div>
+        <span class="text-pink-400 font-bold">750 pts</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer Leaderboard -->
+  <section id="volunteers" class="px-6 pb-20 leaderboard-tab hidden" data-aos="fade-up">
+    <div class="space-y-4">
+      <!-- Leaderboard Row -->
+      <div class="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-red-900 to-black">
+        <div class="flex items-center gap-3">
+          <span class="text-xl font-bold text-yellow-400 glow-medal">1</span>
+          <i class="fas fa-medal text-yellow-400 glow-medal"></i>
+          <span class="font-semibold">Riya Sharma</span>
+        </div>
+        <div class="w-2/3 bg-gray-700 rounded h-3">
+          <div class="bg-pink-500 h-3 rounded progress-fill" style="width: 85%"></div>
+        </div>
+        <span class="text-pink-400 font-bold">850 pts</span>
+      </div>
+
+      <div class="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-red-900 to-black">
+        <div class="flex items-center gap-3">
+          <span class="text-xl font-bold text-gray-300">2</span>
+          <i class="fas fa-medal text-gray-300"></i>
+          <span class="font-semibold">Aman Verma</span>
+        </div>
+        <div class="w-2/3 bg-gray-700 rounded h-3">
+          <div class="bg-pink-500 h-3 rounded progress-fill" style="width: 70%"></div>
+        </div>
+        <span class="text-pink-400 font-bold">700 pts</span>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-black border-t border-pink-700 text-white pt-10 pb-6 px-6 mt-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
+  
+      <!-- Logo + About -->
+      <div>
+        <h2 class="text-2xl font-bold text-pink-500 mb-2">Eventify</h2>
+        <p class="text-gray-400">Your ultimate campus event hub — connect, explore, and lead the way with every event that matters.</p>
+      </div>
+  
+      <!-- Quick Links (no actual links, just placeholders) -->
+      <div>
+         
+      </div>
+  
+      <!-- Follow + Credit -->
+      <div>
+        <h3 class="text-lg font-semibold mb-3 text-pink-400">Connect</h3>
+        <div class="flex space-x-4 mb-4">
+          <i class="fab fa-instagram hover:text-pink-500 transition cursor-pointer"></i>
+          <i class="fab fa-discord hover:text-pink-500 transition cursor-pointer"></i>
+          <i class="fab fa-twitter hover:text-pink-500 transition cursor-pointer"></i>
+        </div>
+        <p class="text-gray-500">Crafted by <span class="text-white font-semibold">Palak</span> ✨</p>
+      </div>
+    </div>
+  
+    <!-- Glowing Line -->
+    <div class="mt-10 mb-4 h-0.5 w-full bg-gradient-to-r from-transparent via-pink-600 to-transparent blur-sm"></div>
+  
+    <!-- Copyright -->
+    <div class="text-center text-gray-600 text-xs">
+      © 2025 Eventify. All rights reserved.
+    </div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function showTab(type) {
+      document.querySelectorAll('.leaderboard-tab').forEach(tab => tab.classList.add('hidden'));
+      document.getElementById(type).classList.remove('hidden');
+    }
+
+    // Animate bars on load
+    window.onload = () => {
+      document.querySelectorAll('.progress-fill').forEach(el => {
+        const width = el.style.width;
+        el.style.width = '0%';
+        setTimeout(() => el.style.width = width, 300);
+      });
+    };
+  </script>
+</body>
+</html>
